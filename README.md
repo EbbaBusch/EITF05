@@ -12,9 +12,9 @@ It also assumes that the root user is called "root" and the webshop folder is pl
 **This will replace your current webshop database with the one created from dump.sql**
 
 ### Instructions ###
-1. **move** dbgen.bat and dump.sql to your xampp folder.
-2. open CMD and navigate to your **xampp** directory.
-3. in CMD, type:  `dbgen.bat <password>`, where <password> is your root password. If no password 
+1. **Move** `dbgen.bat`, `dump.sql`, and `dumpgen.bat` to your xampp folder.
+2. Open CMD and navigate to your **xampp** directory.
+3. In CMD, type:  `dbgen.bat <password>`, where <password> is your root password. If no password 
 exists, leave the field empty.
 4. Lean back and enjoy, you should also be automatically logged in
 
@@ -23,6 +23,7 @@ exists, leave the field empty.
 Alternative 1: `mysqldump -uroot -p[password] webshop > /path/to/file/dump.sql`
 
 outputs the dump.sql at the given path.
+
 **Note**: No space character (' ') between -p and [password]
 
 Alternative 2: run `dumpgen.bat <password>` and `dump.sql` will be generated in the current folder.
