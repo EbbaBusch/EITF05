@@ -1,0 +1,1 @@
+mysqldump -uroot -p%1 webshop > dump.sql

@@ -23,12 +23,14 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `idusers` int(11) NOT NULL,
+  `userid` int(20) NOT NULL,
   `loginname` varchar(45) NOT NULL,
   `pwd` varchar(45) NOT NULL,
   `mail` varchar(320) NOT NULL,
   `latestsession` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idusers`)
+  `salt` varchar(20) NOT NULL,
+  `date` int(6) NOT NULL,
+  PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +40,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (0,'first','pwd','mail@mail.com','0'),(1,'second','pwd','mail2@mail.com','0');
+INSERT INTO `users` VALUES (0,'first','pwd','mail@mail.com','0','abxyzs',0),(1,'second','pwd','mail2@mail.com','0','azxcvtff2421xzf3waah',0),(2,'third','pwd','mail3@mail.com','0','asfhu38hvuizh983hiuv',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-14 18:02:37
+-- Dump completed on 2016-09-15  9:21:36
