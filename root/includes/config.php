@@ -1,5 +1,5 @@
 <?php
 define("user","root");
 define("password","");
-define("dsn",'mysql:host=localhost;dbname=EITF05');
+define("dsn",'mysql:host=localhost;dbname=webshop');
 ?>
