@@ -36,11 +36,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (0,'first','pwd','mail@mail.com','0','abxyzs',0),(1,'second','pwd','mail2@mail.com','0','azxcvtff2421xzf3waah',0),(2,'third','pwd','mail3@mail.com','0','asfhu38hvuizh983hiuv',0);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
