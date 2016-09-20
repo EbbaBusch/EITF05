@@ -1,5 +1,6 @@
-<?php include_once 'includes/database_connect.php'; ?>
-<?php include_once 'includes/functions.php'; ?>
+<?php include_once 'includes/functions.php'; 
+ session_start();   
+?>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 <!DOCTYPE html>
@@ -10,26 +11,42 @@
     <body>
         <!-- Registration form to be output if the POST variables are not
         set or if the registration script caused an error. -->
-        <h1>Register</h1>
-        
+     <?php if(!logincheck()){ ?>
+		  <h1>Register</h1>
         <form>
             Username: <input type='text' name='username' id='username' /><br>
             Email: <input type="text" name="email" id="email" /><br>
             Password: <input type="password" name="pass" id="pass"/><br>
+            <input type="button" onClick="register()" value="Register">
         </form>
-         <button id="register" >Register</button>
         
-        <br><p>Return to the <a href="index.php">login page</a>.</p>
+	  <?php }else{print("You are already logged in");
+	  
+	  }?>
+      
+      <br><p>Return to the <a href="index.php">login page</a>.</p>
         
     </body>
      <script>
 	
-		 $("#register").click(function(){	
+		function register(){
 		 
-		var  username=$("#username").val();
-		 var password=$("#pass").val();
-		  var email=$("#email").val();
-		   
+			var username= $("#username").val();
+			var password= $("#pass").val();
+		 	var email= $("#email").val();
+		  
+		  if(username =="" || password == "" || email==""){
+			  var response = "Please fill in all details";
+			  $("#responsetext").html(response);
+			  return;
+		  }
+		  
+		  if(password.length < 6){
+			  var response = "Please enter a password with over 6 characters";
+			  $("#responsetext").html(response);
+			  return;
+		  }
+		  
 		  $.ajax({
 		   type: "POST",
 		   url: "register.php",
@@ -43,7 +60,8 @@
 			}
 		   },
 		  }); 
-	 });
+		  }
+	 
 </script>
 
 <p id="responsetext"></p>

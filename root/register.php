@@ -13,16 +13,9 @@
 		$result= executeQuery($sql,array($username));
 		
 		if($result != null){
-			$err = "Användarnamnet finns redan i databasen";
+			$err = "Username already exists in database";
 			echo($err);
 			return;
-		
-		}else if($username == ""){
-			$err = "Vänligen ange användarnamn";
-			echo($err);
-			return;
-		}else if($pass == ""){
-			
 		}
 		
 		$password = password_hash($pass, PASSWORD_BCRYPT);
@@ -31,7 +24,5 @@
 		executeUpdate($sql2,array($username,$password,$email));
 		
 		echo(1);
-		
-		
 	}
 ?>
