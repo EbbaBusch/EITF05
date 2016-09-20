@@ -1,6 +1,6 @@
-mysql\bin\mysqladmin.exe -u root -p%1 shutdown
+mysqladmin -u root -p%1 shutdown
 TIMEOUT 2
-START /B mysql\bin\mysqld.exe
+START /B mysqld
 TIMEOUT 1
 mysql -u root -p%1 -e "DROP DATABASE webshop; CREATE DATABASE webshop;"
 mysql -u root -p%1 webshop < dump.sql
