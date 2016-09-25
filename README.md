@@ -29,3 +29,7 @@ outputs the dump.sql at the given path.
 Alternative 2: run `dumpgen.bat <password>` and `dump.sql` will be generated in the current folder.
 If there is no root password, leave the password field empty.
 
+### Cross Site Scripting ###
+To perform a cross site scripting attack you could just insert something into the comment field. I used:
+"><script>document.location="http://localhost/malicious/";</script> 
+which simply redirects the user to the malicious website, which as of writing this just returns you to the original website, effectively creating a loop between the two sites, forcing a logout between. Whether or not that can be considered a valuable attack effort I leave for someone else to evaluate.
