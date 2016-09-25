@@ -36,12 +36,26 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
+
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES ('abc','abc','abc','abc',4);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+create table items(
+id int(11) NOT NULL AUTO_INCREMENT,
+productname varchar(320) NOT NULL,
+price int(11) NOT NULL,
+description varchar(320),
+
+primary key(id)
+
+);
+
+insert into items(productname,price,description) values(10000,"Samsung S7","Den exploderar inte, jag lovar");
+insert into items(productname,price,description) values(10000,"Iphone 7","Dina hörlurar är värdelösa!");
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
