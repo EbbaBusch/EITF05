@@ -1,6 +1,7 @@
 <?php 
 include_once 'includes/database_connect.php'; 
 include_once 'includes/functions.php';
+
 // secure_session();
  session_start();    
 ?>
@@ -44,7 +45,17 @@ include_once 'includes/functions.php';
 	 });
 </script>
 
-<a href="regpage.php">Registrer</a>
+<a href="regpage.php">Register</a>
 
 <p id="responsetext"></p>
 
+<form method='post' action = 'includes/processcomment.php'>
+
+  Comment:<br />
+  <textarea name='comment' id='comment'></textarea><br />
+  
+  <input type='submit' value='Submit'/>  
+</form>
+
+
+<?php include 'includes/collectcomments.php'; ?>
