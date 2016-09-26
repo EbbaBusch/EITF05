@@ -11,11 +11,10 @@ if (isset($_POST['username'], $_POST['pass'])){
 		 
 		if (login($username, $password) == true){
 			header('Location: index.php'); 
-			die(); 
 		
 		}else{
 			header('Location: index.php');
-			die(); 
+			
 	}
 }
 

@@ -2,9 +2,6 @@
 include_once 'functions.php';
 secure_session();
 
-if($_POST)
-
-{
 	$id = $_POST["id"];
 	$price = $_POST["price"];
 	$product = $_POST["product"];
@@ -27,7 +24,8 @@ if($_POST)
 	  $quantity = $_SESSION['cart'][$id][1];
 	  $quantity  = $quantity + 1;
 	  $_SESSION['cart'][$id][1] = $quantity;
-	
-  }
-}
+	  
+  } 
+
+ 	header('Location: ../index.php'); 
 ?>

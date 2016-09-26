@@ -10,17 +10,20 @@ secure_session();
 <?php	
 	if(!logincheck()){
 ?>
-    <form name="login_form" action="processlogin.php" method="post">                      
+    <form name="login_form" action="processlogin.php" method="post" id="login_form">                      
             Username: <input type="text" name="username" id="username" />
             Password: <input type="password" name="pass" id="pass"/> 
-            <input type="submit" value="login" />
+            <input type="submit" />
         </form>
+         
 
-<?php }else{ 
-	print("<Form Method ='POST' ACTION = 'includes/logout.php'>
-		<INPUT TYPE = 'Submit' VALUE = 'logout'>");
-		}
-?>
+<?php }else{  ?>
+	
+    <Form Method ='POST' ACTION = 'includes/logout.php'>
+	<INPUT TYPE = 'Submit' VALUE = 'logout'>
+	
+	<?php }?>	
+
 
 <a href="regpage.php">Register</a>
 
@@ -29,40 +32,39 @@ secure_session();
 	$result = getitems();
 	
 	foreach($result as $item){
-				
+				$id = $item[0];
+				$name = $item[1];
+				$price = $item[2];
+				$description = $item[3];
 		?>
 		
 		<div class="item">
 		
-		<h1 style="margin-left:2%; margin-top:2%;"><?php echo($item[1]);?></h1>
-        <p>Price: <?php echo($item[2]);?></p>
-        <p>Description: <?php echo($item[3]);?></p>
+		<h1 style="margin-left:2%; margin-top:2%;"><?php echo($name);?></h1>
+        <p>Price: <?php echo($price);?></p>
+        <p>Description: <?php echo($description);?></p>
         
-   
-        
-       <?php $comments = getcomments($item[0]); 
+       <?php $comments = getcomments($id); 
 	   			foreach($comments as $comment){
 	   ?>
        <p>Comment: <?php echo($comment[0]);?></p>     
-       
 	   <?php } ?> 
        
-            <form method='POST' action="includes/addtocart.php">
-       		<input type='hidden' name='id' value=<?php echo($item[0]);?>></input>
-        	<input type='hidden' name='product' value=<?php echo($item[1]);?>></input>
-        	<input type='hidden' name='price' value=<?php echo($item[2]);?>></input>
-       		<input type='submit' value='Submit'/>   
-        </form>
        
-       <form method='post' action = 'includes/processcomment.php'>
-  		<textarea name='comment'></textarea>
-   		<input style="display:none;" name='id' value=<?php echo($item[0]);?>></input>
-  		<input type='submit' value='Submit'/>  
+       <form method="post" action="includes/addtocart.php">
+       			<input type="hidden" name="id" value=<?php echo($id);?> />
+                <input type="hidden" name="price" value=<?php echo($price);?> />
+                <input type="hidden" name="product" value=<?php echo($name);?> />
+                <input type='submit' value='Submit'/> 
+       </form>
+       
+       <form method='post' action ='includes/processcomment.php'>
+  			<textarea name='comment'></textarea>
+   			<input style="display:none;" name='id' value=<?php echo($id);?>></input>
+  			<input type='submit' value='Submit'/>  
 		</form>
 </div>
   <?php } ?>
-  
-  
   
   
   <div class="shoppingcart"> 
