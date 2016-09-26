@@ -20,8 +20,12 @@ secure_session();
 	
     <Form Method ='POST' ACTION = 'includes/logout.php'>
 	<INPUT TYPE = 'Submit' VALUE = 'logout'>
+<<<<<<< HEAD
     </Form>
 	
+=======
+		</form>
+>>>>>>> 0a1283ac7db04e538d5e8764e2ec7b4ccfe8713d
 	<?php }?>	
 
 
@@ -62,7 +66,7 @@ secure_session();
   			<textarea name='comment'></textarea>
    			<input style="display:none;" name='id' value=<?php echo($id);?>></input>
   			<input type='submit' value='Submit'/>  
-		</form>
+		 </form>
 </div>
   <?php } ?>
   

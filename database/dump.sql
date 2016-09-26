@@ -21,6 +21,7 @@
 
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `items`;
+DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
@@ -52,7 +53,11 @@ price int(11) NOT NULL,
 description varchar(320),
 
 primary key(id)
+);
 
+create table comments(
+id int(11),
+comments varchar(320)
 );
 
 insert into items(productname,price,description) values(10000,"Samsung S7","Den exploderar inte, jag lovar");
