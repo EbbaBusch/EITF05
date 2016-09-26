@@ -1,10 +1,6 @@
 <?php
 include_once 'functions.php';
 secure_session();
-
-if(isset($_POST['token'])){
- 
- if($_POST['token'] == $_SESSION['token']){
  
 // Unset all session values 
 $_SESSION = array();
@@ -23,8 +19,5 @@ setcookie(session_name(),
 // Destroy session 
 session_destroy();
 header('Location: ../index.php');
-}
-die();
-}
-die();
+
 ?>

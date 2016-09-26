@@ -1,0 +1,25 @@
+body{
+	width:100%	
+	
+}
+
+h1{
+	font-family:"Helvetica Neue","Helvetica Narrow";
+	
+}
+
+.item{
+	width:50%;
+	background-color:#E9E9E9;	
+	color:#000;
+	margin-top:2%;
+	border-radius: 5px 5px 5px 5px;
+	
+}
+
+.shoppingcart{
+position:absolute;
+width:25%;
+top:8%;	
+right:0%;	
+}

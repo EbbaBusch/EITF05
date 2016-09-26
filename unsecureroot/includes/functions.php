@@ -49,13 +49,7 @@
  
     session_start();            // Start the PHP session 
     session_regenerate_id(true); 
-
-	if(!isset($_SESSION['token'])){
-		$token = base64_encode(openssl_random_pseudo_bytes(16));
-		$_SESSION['token'] = $token;
 	}
-}
-	
 	
 	function login($loginname,$password){
 		$sql = "Select loginname,pwd FROM users WHERE loginname=? LIMIT 1";
@@ -98,7 +92,5 @@ function getcomments($id){
 	$result = executeQuery($sql,array($id));
 	return $result;
 }
-
-
 
 ?>

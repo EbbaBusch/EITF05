@@ -13,15 +13,14 @@ secure_session();
     <form name="login_form" action="processlogin.php" method="post" id="login_form">                      
             Username: <input type="text" name="username" id="username" />
             Password: <input type="password" name="pass" id="pass"/> 
-            		  <input type="hidden" name="token" value= <?php echo($_SESSION['token']);?> />
             <input type="submit" />
         </form>
 
 <?php }else{  ?>
 	
     <Form Method ='POST' ACTION = 'includes/logout.php'>
-    <INPUT type="hidden" name="token" value= <?php echo($_SESSION['token']); ?> />
 	<INPUT TYPE = 'Submit' VALUE = 'logout'>
+
     </Form>
 	
 	<?php }?>	
@@ -57,14 +56,13 @@ secure_session();
        			<input type="hidden" name="id" value=<?php echo($id);?> />
                 <input type="hidden" name="price" value=<?php echo($price);?> />
                 <input type="hidden" name="product" value=<?php echo($name);?> />
-                <input type='submit' value='ADD TO CART'/> 
+                <input type='submit' value='Submit'/> 
        </form>
        
        <form method='post' action ='includes/processcomment.php'>
   			<textarea name='comment'></textarea>
-   			<input type='hidden' name='id' value=<?php echo($id);?>></input>
-            <input type="hidden" name="token" value=<?php echo($_SESSION['token'])?>></input>
-  			<input type='submit' value='Comment'/>  
+   			<input style="display:none;" name='id' value=<?php echo($id);?>></input>
+  			<input type='submit' value='Submit'/>  
 		 </form>
 </div>
   <?php } ?>
@@ -83,7 +81,7 @@ secure_session();
     <p> Price: <?php print($cartitem[3] * $cartitem[1]);?> </p>
     
       <form method='post' action='includes/deletefromcart.php'>
-        <input type= 'hidden' name='id' value=<?php echo($cartitem[0]);?>></input>
+        <input style="display:none;" name='id' value=<?php echo($cartitem[0]);?>></input>
         <input type='submit' value='Delete'/>  
         </form>
 <?php  }  
