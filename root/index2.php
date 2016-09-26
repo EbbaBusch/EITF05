@@ -38,7 +38,12 @@ secure_session();
         <p>Price: <?php echo($item[2]);?></p>
         <p>Description: <?php echo($item[3]);?></p>
         
-   
+        <form method='POST' action="includes/addtocart.php">
+        <input style="display:none;" name='id' value=<?php echo($item[0]);?>></input>
+         <input style="display:none;" name='product' value=<?php echo($item[1]);?>></input>
+          <input style="display:none;" name='price' value=<?php echo($item[2]);?>></input>
+       <input type='submit' value='Submit'/>   
+        </form>
         
        <?php $comments = getcomments($item[0]); 
 	   			foreach($comments as $comment){
@@ -47,24 +52,14 @@ secure_session();
        
 	   <?php } ?> 
        
-            <form method='POST' action="includes/addtocart.php">
-       		<input type='hidden' name='id' value=<?php echo($item[0]);?>></input>
-        	<input type='hidden' name='product' value=<?php echo($item[1]);?>></input>
-        	<input type='hidden' name='price' value=<?php echo($item[2]);?>></input>
-       		<input type='submit' value='Submit'/>   
-        </form>
-       
        <form method='post' action = 'includes/processcomment.php'>
-  		<textarea name='comment'></textarea>
-   		<input style="display:none;" name='id' value=<?php echo($item[0]);?>></input>
-  		<input type='submit' value='Submit'/>  
-		</form>
+  <textarea name='comment'></textarea>
+   <input style="display:none;" name='id' value=<?php echo($item[0]);?>></input>
+  <input type='submit' value='Submit'/>  
+</form>
 </div>
+
   <?php } ?>
-  
-  
-  
-  
   <div class="shoppingcart"> 
   
     <h1>Shoppingcart</h1>  

@@ -36,7 +36,7 @@
 		$httponly = true;
 			 
 		if (ini_set('session.use_only_cookies', 1) === FALSE) {
-       				 header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
+       				 header("Location: ../index.php");
       				 exit();
    		}
 			
@@ -52,7 +52,6 @@
 	}
 	
 	function login($loginname,$password){
-		
 		$sql = "Select loginname,pwd FROM users WHERE loginname=? LIMIT 1";
 		$result = executeQuery($sql,array($loginname));
 	
@@ -80,5 +79,18 @@ function logincheck(){
 	
 }
 
+function getitems(){
+	
+	$sql = "Select * from items";
+	$result = executeQuery($sql);
+	
+	return $result;
+}
+
+function getcomments($id){
+	$sql = "Select comments from comments where id =?";
+	$result = executeQuery($sql,array($id));
+	return $result;
+}
 
 ?>

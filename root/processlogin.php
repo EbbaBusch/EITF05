@@ -1,7 +1,6 @@
 <?php include_once 'includes/database_connect.php'; 
 include_once 'includes/functions.php';
-
-secure_session();  ?>
+secure_session(); ?>
 
 <?php
 
@@ -11,12 +10,12 @@ if (isset($_POST['username'], $_POST['pass'])){
 		 $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
 		 
 		if (login($username, $password) == true){
-			if(logincheck()){
-				echo 1;
-			}
+			header('Location: index.php'); 
+			die(); 
+		
 		}else{
-			echo("Fel lösenord eller användarnamn");
-			
+			header('Location: index.php');
+			die(); 
 	}
 }
 
