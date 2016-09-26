@@ -15,12 +15,12 @@ secure_session();
             Password: <input type="password" name="pass" id="pass"/> 
             <input type="submit" />
         </form>
-         
 
 <?php }else{  ?>
 	
     <Form Method ='POST' ACTION = 'includes/logout.php'>
 	<INPUT TYPE = 'Submit' VALUE = 'logout'>
+    </Form>
 	
 	<?php }?>	
 
