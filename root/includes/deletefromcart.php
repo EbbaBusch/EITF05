@@ -13,6 +13,9 @@ if($_POST)
 	unset($_SESSION['cart'][$id]);
 	
   } 
+  if(empty($_SESSION['cart'])){
+      unset($_SESSION['cart']);
+  }
   	header('Location: ../index.php'); 
 	die();
 }

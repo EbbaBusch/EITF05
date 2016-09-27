@@ -1,4 +1,4 @@
--- MySQL dump 10.16  Distrib 10.1.16-MariaDB, for Win32 (AMD64)
+﻿-- MySQL dump 10.16  Distrib 10.1.16-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: webshop
 -- ------------------------------------------------------
@@ -60,14 +60,14 @@ id int(11),
 comments varchar(320)
 );
 
-insert into items(productname,price,description) values(10000,"Samsung S7","Den exploderar inte, jag lovar");
-insert into items(productname,price,description) values(10000,"Iphone 7","Dina hörlurar är värdelösa!");
+insert into items(productname,price,description) values("Samsung S7", 7899, "Den exploderar inte, jag lovar");
+insert into items(productname,price,description) values("Iphone 7", 11567, "Dina hörlurar är värdelösa!");
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET  CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 

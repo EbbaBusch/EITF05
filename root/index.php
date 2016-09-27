@@ -3,31 +3,15 @@ include_once 'includes/database_connect.php';
 include_once 'includes/functions.php';
 secure_session();
 ?>
-
+<head>
+<meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 
-<?php	
-	if(!logincheck()){
-?>
-    <form name="login_form" action="processlogin.php" method="post" id="login_form">                      
-            Username: <input type="text" name="username" id="username" />
-            Password: <input type="password" name="pass" id="pass"/> 
-            		  <input type="hidden" name="token" value= <?php echo($_SESSION['token']);?> />
-            <input type="submit" />
-        </form>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
 
-<?php }else{  ?>
-	
-    <Form Method ='POST' ACTION = 'includes/logout.php'>
-    <INPUT type="hidden" name="token" value= <?php echo($_SESSION['token']); ?> />
-	<INPUT TYPE = 'Submit' VALUE = 'logout'>
-    </Form>
-	
-	<?php }?>	
-
-
-<a href="regpage.php">Register</a>
+<?php include ('menubar.php'); ?>
 
 <?php 
 		
@@ -86,9 +70,14 @@ secure_session();
         <input type= 'hidden' name='id' value=<?php echo($cartitem[0]);?>></input>
         <input type='submit' value='Delete'/>  
         </form>
-<?php  }  
-  }
-?>
+
+
+<?php  }  ?>
+<form method="post" action="checkout.php">
+<input type="hidden" name="token" value=<?php echo($_SESSION['token'])?>></input>
+<input type="submit" value="Go to checkout">
+</form>
+<?php  } ?>
 </div>
 
 

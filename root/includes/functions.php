@@ -41,7 +41,7 @@
    		}
 			
    		$cookieParams = session_get_cookie_params();
-    	session_set_cookie_params($cookieParams["lifetime"],
+    	session_set_cookie_params(900,
         $cookieParams["path"], 
         $cookieParams["domain"], 
         $secure,
