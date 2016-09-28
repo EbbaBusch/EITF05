@@ -7,12 +7,11 @@ secure_session();
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
-
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <?php include ('menubar.php'); ?>
-
+<div id="content">
+    <div id="items">
 <?php 
 		
 	$result = getitems();
@@ -26,7 +25,7 @@ secure_session();
 		
 		<div class="item">
 		
-		<h1 style="margin-left:2%; margin-top:2%;"><?php echo($name);?></h1>
+		<h1><?php echo($name);?></h1>
         <p>Price: <?php echo($price);?></p>
         <p>Description: <?php echo($description);?></p>
         
@@ -53,7 +52,7 @@ secure_session();
 </div>
   <?php } ?>
   
-  
+  </div>
   <div class="shoppingcart"> 
   
     <h1>Shoppingcart</h1>  
@@ -78,7 +77,8 @@ secure_session();
 <input type="submit" value="Go to checkout">
 </form>
 <?php  } ?>
+
 </div>
 
-
+</div>
 

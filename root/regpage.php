@@ -9,6 +9,7 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <div id="reg">
         <!-- Registration form to be output if the POST variables are not
         set or if the registration script caused an error. -->
      <?php if(!logincheck()){ ?>
@@ -26,7 +27,7 @@
       
       <br><p>Return to the <a href="index.php">login page</a>.</p>
         
-    </body>
+    
      <script>
 	
 		function register(){
@@ -65,6 +66,6 @@
 </script>
 
 <p id="responsetext"></p>
-    
-    
+</div>
+</body> 
 </html>

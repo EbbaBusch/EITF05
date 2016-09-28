@@ -12,7 +12,7 @@ secure_session();
 </head>
 
 <?php include ('menubar.php'); ?>
-
+<div id="receipt">
 <?php
 if($_POST['token'] == $_SESSION['token']){
 $totalprice = 0;
@@ -33,3 +33,4 @@ foreach($_SESSION['cart'] as $cartitem){ ?>
     echo $_POST['address'];
     echo $_POST['phone'];
 ?>
+</div>

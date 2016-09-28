@@ -11,7 +11,7 @@ secure_session();
 </head>
 
 <?php include ('menubar.php'); ?>
-
+<div id="checkout">
 <h1>Checkout</h1>
 <h2>Your items</h2>
 <?php
@@ -44,3 +44,4 @@ else {
     <input type="text" name="card" placeholder="Card number">
     <input type="submit" value="BUY!">
 </form>
+</div>

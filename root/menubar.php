@@ -1,4 +1,7 @@
-<a href="index.php">Home</a>
+<div id="menu">
+    <ul>
+        <li><a href="index.php">Home</a></li>
+        <li>
 <?php	
 	if(!logincheck()){
 ?>
@@ -6,7 +9,7 @@
             Username: <input type="text" name="username" id="username" />
             Password: <input type="password" name="pass" id="pass"/> 
             		  <input type="hidden" name="token" value= <?php echo($_SESSION['token']);?> />
-            <input type="submit" />
+            <input type="submit" value="login"/>
         </form>
 
 <?php }else{  ?>
@@ -19,5 +22,7 @@
 	
 	<?php }?>	
 
-
-<a href="regpage.php">Register</a>
+            </li>
+            <li><a href="regpage.php">Register</a></li>
+            </ul>
+</div>
