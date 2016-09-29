@@ -40,14 +40,14 @@ secure_session();
        			<input type="hidden" name="id" value=<?php echo($id);?> />
                 <input type="hidden" name="price" value=<?php echo($price);?> />
                 <input type="hidden" name="product" value=<?php echo($name);?> />
-                <input type='submit' value='ADD TO CART'/> 
+           <button type='submit' value='ADD TO CART'>Add to cart</button> 
        </form>
        
        <form method='post' action ='includes/processcomment.php'>
   			<textarea name='comment'></textarea>
    			<input type='hidden' name='id' value=<?php echo($id);?>></input>
             <input type="hidden" name="token" value=<?php echo($_SESSION['token'])?>></input>
-  			<input type='submit' value='Comment'/>  
+            <br/> <button type='submit' value='Comment'>Comment</button>  
 		 </form>
 </div>
   <?php } ?>
@@ -67,14 +67,14 @@ secure_session();
     
       <form method='post' action='includes/deletefromcart.php'>
         <input type= 'hidden' name='id' value=<?php echo($cartitem[0]);?>></input>
-        <input type='submit' value='Delete'/>  
+      <button type='submit' value='Delete'>Delete</button>  
         </form>
 
 
 <?php  }  ?>
 <form method="post" action="checkout.php">
 <input type="hidden" name="token" value=<?php echo($_SESSION['token'])?>></input>
-<input type="submit" value="Go to checkout">
+<button type="submit" value="Go to checkout">Go to checkout</button>
 </form>
 <?php  } ?>
 

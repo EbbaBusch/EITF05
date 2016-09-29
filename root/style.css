@@ -22,7 +22,7 @@ h1{
 }
 
 .item {
- margin-bottom: 100px;
+    margin-bottom: 50px;
     border-bottom: 1px solid #999;
 }
 
@@ -40,26 +40,72 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
 }
 
 li {
     float: left;
 }
 
-li a, li form {
+li a, li form, #menu p {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 4px 16px;
     text-decoration: none;
+    font-family: "calibri";
+    text-transform: uppercase;
+}
+
+li a:hover {
+    color: #999;
+}
+
+#menu form, #menu p {
+    display: inline;
+    vertical-align: middle;
+    margin: 14px 16px;
+}
+
+input {
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #999;
+}
+
+#menu input, #menu button {
+    border: none;
+    margin: 0;
 }
 
 #menu {
-   background: #000;
+    background: #333;
+    padding: 15px;
+}
+
+button {
+    border-radius: 2px;
+    text-transform: none;
+    padding: 5px 10px;
+    border: 1px solid #999;
+    margin: 15px 0;
+}
+
+button:hover {
+    background-color:lightgrey;
+}
+
+#login {
+    float: right;
 }
 
 #reg {
+    width: 200px;
+    margin: 20px auto;
+    padding: 50px;
+    box-shadow: 0 0 3px 3px #E3E3E3;
+}
+
+#reg button {
     
 }
 
@@ -67,8 +113,34 @@ li a, li form {
     
 }
 
-#checkout {
-    
+#checkout, #receipt {
+    width: 800px;
+    /*background-color: lightgrey;*/
+    margin: 20px auto;
+    padding: 50px;
+    box-shadow: 0 0 3px 3px #E3E3E3;
+    overflow: hidden;
+}
+
+#checkout form, #details {
+    width: 50%;
+    margin-top: 40px;
+    float: right;
+    text-align: center;
+}
+
+#checkout input {
+    margin: 10px;
+}
+
+#checkoutitems, #products {
+    width: 50%;
+    float: left;
+    margin-top: 40px;
+}
+
+#checkout h1, #receipt h1, #receipt h2, #receipt h3, #receipt h4 {
+    text-align: center;
 }
 
 #receipt {

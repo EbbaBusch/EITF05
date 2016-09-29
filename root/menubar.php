@@ -1,15 +1,16 @@
 <div id="menu">
     <ul>
         <li><a href="index.php">Home</a></li>
-        <li>
+        <li><a href="regpage.php">Register</a></li>
+        <li id="login">
 <?php	
 	if(!logincheck()){
 ?>
     <form name="login_form" action="processlogin.php" method="post" id="login_form">                      
-            Username: <input type="text" name="username" id="username" />
-            Password: <input type="password" name="pass" id="pass"/> 
-            		  <input type="hidden" name="token" value= <?php echo($_SESSION['token']);?> />
-            <input type="submit" value="login"/>
+            <input type="text" name="username" id="username" placeholder="Username"/>
+            <input type="password" name="pass" id="pass" placeholder="Password"/> 
+            <input type="hidden" name="token" value= <?php echo($_SESSION['token']);?> />
+            <button type="submit" value="Log in">Log in</button>
         </form>
 
 <?php }else{  ?>
@@ -17,12 +18,10 @@
     <p>Logged in as: <?php echo $_SESSION['username']; ?></p>
     <Form Method ='POST' ACTION = 'includes/logout.php'>
     <INPUT type="hidden" name="token" value= <?php echo($_SESSION['token']); ?> />
-	<INPUT TYPE = 'Submit' VALUE = 'logout'>
+        <button TYPE = 'Submit' VALUE = 'logout'>Log out</button>
     </Form>
 	
-	<?php }?>	
-
-            </li>
-            <li><a href="regpage.php">Register</a></li>
-            </ul>
+	<?php } ?>	
+        </li>
+    </ul>
 </div>

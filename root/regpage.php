@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <meta charset="UTF-8">
     </head>
     <body>
@@ -18,7 +19,7 @@
             Username: <input type='text' name='username' id='username' /><br>
             Email: <input type="text" name="email" id="email" /><br>
             Password: <input type="password" name="pass" id="pass"/><br>
-            <input type="button" onClick="register()" value="Register">
+            <button type="button" onClick="register()" value="Register">Register</button>
         </form>
         
 	  <?php }else{print("You are already logged in");
