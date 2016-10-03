@@ -22,6 +22,8 @@
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `items`;
 DROP TABLE IF EXISTS `comments`;
+DROP TABLE IF EXISTS `loginattempts`;
+
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
@@ -37,7 +39,6 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
-
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -58,6 +59,11 @@ primary key(id)
 create table comments(
 id int(11),
 comments varchar(320)
+);
+
+create table loginattempts(
+`loginname` varchar(45) NOT NULL,
+loginattempt varchar(30) NOT NULL
 );
 
 insert into items(productname,price,description) values("Samsung S7", 7899, "Den exploderar inte, jag lovar");

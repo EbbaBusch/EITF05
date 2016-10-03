@@ -58,6 +58,9 @@
 	
 	
 	function login($loginname,$password){
+		
+		if(!bruteforce($loginname)){
+		
 		$sql = "Select loginname,pwd FROM users WHERE loginname=? LIMIT 1";
 		$result = executeQuery($sql,array($loginname));
 	
@@ -70,12 +73,37 @@
 					 $_SESSION['username'] = $loginname;
 					return true;
 			}else{	
-				return false;
+			
 			}
 		}
 	}else{
-			return false;	
-		}		
+			
+		}	
+
+		$sql2 = "INSERT INTO loginattempts(loginname,loginattempt) values(?,?)";
+		$time = time();
+		$result = executeUpdate($sql2,array($loginname,$time));
+		return false;	
+		
+		}
+		header("../index.php");
+}
+
+
+
+function bruteforce($loginname){
+	 $now = time();
+	 $attempts = $now - (60 * 60);
+	 
+	 $sql = "SELECT loginattempt from loginattempts  WHERE loginname = ? and loginattempt > ?";
+	 
+	 $result = executeQuery($sql,array($loginname,$attempts));
+	 
+	 if (count($result) > 5) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 function logincheck(){

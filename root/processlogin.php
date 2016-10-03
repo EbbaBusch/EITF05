@@ -1,8 +1,7 @@
 <?php include_once 'includes/database_connect.php'; 
 include_once 'includes/functions.php';
-secure_session(); ?>
+secure_session();
 
-<?php
 
 if (isset($_POST['username'], $_POST['pass'], $_POST['token'] )){
 		if($_POST['token'] == $_SESSION['token']){
@@ -17,6 +16,7 @@ if (isset($_POST['username'], $_POST['pass'], $_POST['token'] )){
 			header('Location: index.php');
 	}
 }
+header('Location: index.php');
 }
 
 ?>
