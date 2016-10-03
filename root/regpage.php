@@ -16,9 +16,9 @@
      <?php if(!logincheck()){ ?>
 		  <h1>Register</h1>
         <form>
-            Username: <input type='text' name='username' id='username' /><br>
-            Email: <input type="text" name="email" id="email" /><br>
-            Password: <input type="password" name="pass" id="pass"/><br>
+            <p>Username:</p><input type='text' name='username' id='username' /><br>
+            <p>Email:</p><input type="text" name="email" id="email" /><br>
+            <p>Password:</p><input type="password" name="pass" id="pass"/><br>
             <button type="button" onClick="register()" value="Register">Register</button>
         </form>
         

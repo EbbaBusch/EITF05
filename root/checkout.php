@@ -17,7 +17,7 @@ secure_session();
 if($_POST['token'] == $_SESSION['token']){
 $totalprice = 0;
 foreach($_SESSION['cart'] as $cartitem){ ?>
-	<h2><?php print($cartitem[2]);?> </h2>
+	<h5><?php print($cartitem[2]);?> </h5>
 	<p> Quantity: <?php print($cartitem[1]);?> </p>
     <p> Price: <?php print($cartitem[3] * $cartitem[1]);?> </p>
     
