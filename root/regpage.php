@@ -15,53 +15,44 @@
         set or if the registration script caused an error. -->
      <?php if(!logincheck()){ ?>
 		  <h1>Register</h1>
-        <form>
-            <p>Username:</p><input type='text' name='username' id='username' /><br>
-            <p>Email:</p><input type="text" name="email" id="email" /><br>
-            <p>Password:</p><input type="password" name="pass" id="pass"/><br>
-            <button type="button" onClick="register()" value="Register">Register</button>
+        <form id="registerform" method="post" action="register.php">
+            <p>Username:</p><input id="username" type='text' name='username' id='username' /><br>
+            <p>Email:</p><input id="email" type="text" name="email" id="email" /><br>
+            <p>Password:</p><input id="password" type="password" name="pass" id="pass"/><br>
+            
+            <button type="button" onClick="register(this.form.username,this.form.email,this.form.pass)" value="Register">Register</button>
         </form>
         
 	  <?php }else{print("You are already logged in");
 	  
 	  }?>
       
+       <?php  if (isset($_REQUEST["err"])){
+	  		
+	  		$error = $_REQUEST["err"];
+			print($error);
+  }
+  
+  ?>
+      
+      <br><p id="error"></p>
       <br><p>Return to the <a href="index.php">login page</a>.</p>
-        
-    
+       
      <script>
 	
-		function register(){
-		 
-			var username= $("#username").val();
-			var password= $("#pass").val();
-		 	var email= $("#email").val();
+		function register(username,email,password){
+					
+			  if (username.value == '' || password.value == '' || email.value == ''){
+					  $("#error").html("Please fill in all forms");
+					return;  
+				  }
+				 
+				  if (password.value.length < 6){
+					  $("#error").html("Password must conatin at least 6 characthers");
+					return;  
+				  }  
 		  
-		  if(username =="" || password == "" || email==""){
-			  var response = "Please fill in all details";
-			  $("#responsetext").html(response);
-			  return;
-		  }
-		  
-		  if(password.length < 6){
-			  var response = "Please enter a password with over 6 characters";
-			  $("#responsetext").html(response);
-			  return;
-		  }
-		  
-		  $.ajax({
-		   type: "POST",
-		   url: "register.php",
-			data: "username="+username+"&pass="+password+"&email="+email,
-		   success: function(html){    
-			if(html == 1){
-				window.location.replace("index.php");
-			}
-			else{
-				$("#responsetext").html(html);
-			}
-		   },
-		  }); 
+			$("#registerform").submit();
 		  }
 	 
 </script>

@@ -110,7 +110,6 @@ function logincheck(){
 		if(isset($_SESSION['username'])){
 			return true;
 		}
-	
 }
 
 function getitems(){
