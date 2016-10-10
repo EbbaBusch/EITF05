@@ -10,7 +10,7 @@ if($_POST['token'] == $_SESSION['token']){
 	    $id = $_POST["id"];
 		
 		$sql = "Insert into comments (id,comments) values(?,?)";
-		executeUpdate($sql,array($id,$comment));
+		executeUpdate ($sql,array($id,$comment));
 		header('Location: ../index.php'); 
 
 	}
