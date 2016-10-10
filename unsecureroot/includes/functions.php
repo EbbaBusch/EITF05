@@ -41,7 +41,7 @@
    		}
 			
    		$cookieParams = session_get_cookie_params();
-    	session_set_cookie_params($cookieParams["lifetime"],
+    	session_set_cookie_params(900,
         $cookieParams["path"], 
         $cookieParams["domain"], 
         $secure,
@@ -49,9 +49,18 @@
  
     session_start();            // Start the PHP session 
     session_regenerate_id(true); 
+
+	if(!isset($_SESSION['token'])){
+		$token = base64_encode(openssl_random_pseudo_bytes(16));
+		$_SESSION['token'] = $token;
 	}
+}
+	
 	
 	function login($loginname,$password){
+		
+		if(!bruteforce($loginname)){
+		
 		$sql = "Select loginname,pwd FROM users WHERE loginname=? LIMIT 1";
 		$result = executeQuery($sql,array($loginname));
 	
@@ -64,19 +73,43 @@
 					 $_SESSION['username'] = $loginname;
 					return true;
 			}else{	
-				return false;
+			
 			}
 		}
 	}else{
-			return false;	
-		}		
+			
+		}	
+
+		$sql2 = "INSERT INTO loginattempts(loginname,loginattempt) values(?,?)";
+		$time = time();
+		$result = executeUpdate($sql2,array($loginname,$time));
+		return false;	
+		
+		}
+		header("../index.php");
+}
+
+
+
+function bruteforce($loginname){
+	 $now = time();
+	 $attempts = $now - (60 * 60);
+	 
+	 $sql = "SELECT loginattempt from loginattempts  WHERE loginname = ? and loginattempt > ?";
+	 
+	 $result = executeQuery($sql,array($loginname,$attempts));
+	 
+	 if (count($result) > 5) {
+            return true;
+        } else {
+            return false;
+        }
 }
 
 function logincheck(){
 		if(isset($_SESSION['username'])){
 			return true;
 		}
-	
 }
 
 function getitems(){
@@ -92,5 +125,7 @@ function getcomments($id){
 	$result = executeQuery($sql,array($id));
 	return $result;
 }
+
+
 
 ?>

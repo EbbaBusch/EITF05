@@ -16,8 +16,8 @@ secure_session();
 	
 	$_SESSION['cart'][$id][] = $id;
 	$_SESSION['cart'][$id][] = 1;
-	$_SESSION['cart'][$id][] = $product ;
-	$_SESSION['cart'][$id][] = $price ;
+	$_SESSION['cart'][$id][] = $product;
+	$_SESSION['cart'][$id][] = $price;
 	
   }else{
 	

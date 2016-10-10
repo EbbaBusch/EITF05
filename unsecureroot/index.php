@@ -3,31 +3,15 @@ include_once 'includes/database_connect.php';
 include_once 'includes/functions.php';
 secure_session();
 ?>
-
+<head>
+<meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-<?php	
-	if(!logincheck()){
-?>
-    <form name="login_form" action="processlogin.php" method="post" id="login_form">                      
-            Username: <input type="text" name="username" id="username" />
-            Password: <input type="password" name="pass" id="pass"/> 
-            <input type="submit" />
-        </form>
-
-<?php }else{  ?>
-	
-    <Form Method ='POST' ACTION = 'includes/logout.php'>
-	<INPUT TYPE = 'Submit' VALUE = 'logout'>
-
-    </Form>
-	
-	<?php }?>	
-
-
-<a href="regpage.php">Register</a>
-
+<?php include ('menubar.php'); ?>
+<div id="content">
+    <div id="items">
 <?php 
 		
 	$result = getitems();
@@ -41,7 +25,7 @@ secure_session();
 		
 		<div class="item">
 		
-		<h1 style="margin-left:2%; margin-top:2%;"><?php echo($name);?></h1>
+		<h1><?php echo($name);?></h1>
         <p>Price: <?php echo($price);?></p>
         <p>Description: <?php echo($description);?></p>
         
@@ -56,18 +40,19 @@ secure_session();
        			<input type="hidden" name="id" value=<?php echo($id);?> />
                 <input type="hidden" name="price" value=<?php echo($price);?> />
                 <input type="hidden" name="product" value=<?php echo($name);?> />
-                <input type='submit' value='Submit'/> 
+           <button type='submit' value='ADD TO CART'>Add to cart</button> 
        </form>
        
        <form method='post' action ='includes/processcomment.php'>
   			<textarea name='comment'></textarea>
-   			<input style="display:none;" name='id' value=<?php echo($id);?>></input>
-  			<input type='submit' value='Submit'/>  
+   			<input type='hidden' name='id' value=<?php echo($id);?>></input>
+            <input type="hidden" name="token" value=<?php echo($_SESSION['token'])?>></input>
+            <br/> <button type='submit' value='Comment'>Comment</button>  
 		 </form>
 </div>
   <?php } ?>
   
-  
+  </div>
   <div class="shoppingcart"> 
   
     <h1>Shoppingcart</h1>  
@@ -81,13 +66,19 @@ secure_session();
     <p> Price: <?php print($cartitem[3] * $cartitem[1]);?> </p>
     
       <form method='post' action='includes/deletefromcart.php'>
-        <input style="display:none;" name='id' value=<?php echo($cartitem[0]);?>></input>
-        <input type='submit' value='Delete'/>  
+        <input type= 'hidden' name='id' value=<?php echo($cartitem[0]);?>></input>
+      <button type='submit' value='Delete'>Delete</button>  
         </form>
-<?php  }  
-  }
-?>
+
+
+<?php  }  ?>
+<form method="post" action="checkout.php">
+<input type="hidden" name="token" value=<?php echo($_SESSION['token'])?>></input>
+<button type="submit" value="Go to checkout">Go to checkout</button>
+</form>
+<?php  } ?>
+
 </div>
 
-
+</div>
 

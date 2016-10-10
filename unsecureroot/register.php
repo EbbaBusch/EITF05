@@ -13,16 +13,18 @@
 		$result= executeQuery($sql,array($username));
 		
 		if($result != null){
-			$err = "Username already exists in database";
-			echo($err);
+			header('Location: regpage.php');
 			return;
+			die();
 		}
 		
 		$password = password_hash($pass, PASSWORD_BCRYPT);
 		$sql2 = "INSERT INTO users (loginname,pwd,mail) VALUES(?,?,?)";
 		
-		executeUpdate($sql2,array($username,$password,$email));
-		
-		echo(1);
+		executeUpdate($sql2,array($username,$password,$email));	
+	
+		header('Location: index.php');
+				
 	}
+	header('Location: regpage.php');
 ?>
