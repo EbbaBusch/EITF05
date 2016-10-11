@@ -55,7 +55,7 @@
 		$_SESSION['token'] = $token;
 	}
 }
-	// ';DROP TABLE users;
+	
 	function login($loginname,$password){
 		
 		global $conn;

@@ -65,8 +65,8 @@ create table loginattempts(
 loginattempt varchar(30) NOT NULL
 );
 
-insert into items(productname,price,description) values("Samsung S7", 7899, "Den exploderar inte, jag lovar");
-insert into items(productname,price,description) values("Iphone 7", 11567, "Dina hörlurar är värdelösa!");
+insert into items(productname,price,description) values("Stardust", 3500, "Sprinkle Sprinkle");
+insert into items(productname,price,description) values("Horn of Unicorn", 5000, "Ecological and fair trade");
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
