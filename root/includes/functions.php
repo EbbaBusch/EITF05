@@ -32,7 +32,7 @@
 	
 	function secure_session(){
 			
-		$secure = false;
+		$secure = true;
 		$httponly = true;
 			 
 		if (ini_set('session.use_only_cookies', 1) === FALSE) {
