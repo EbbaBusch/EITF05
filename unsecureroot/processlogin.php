@@ -6,8 +6,8 @@ secure_session();
 if (isset($_POST['username'], $_POST['pass'], $_POST['token'] )){
 		if($_POST['token'] == $_SESSION['token']){
 		
-		 $password = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_STRING);
-		 $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+		 $password = $_POST['pass'];
+		 $username = $_POST['username'];
 		 
 		if (login($username, $password) == true){
 			header('Location: index.php'); 

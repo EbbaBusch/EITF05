@@ -55,14 +55,15 @@
 		$_SESSION['token'] = $token;
 	}
 }
-	
-	
+	// ';DROP TABLE users;
 	function login($loginname,$password){
+		
+		global $conn;
 		
 		if(!bruteforce($loginname)){
 		
-		$sql = "Select loginname,pwd FROM users WHERE loginname=? LIMIT 1";
-		$result = executeQuery($sql,array($loginname));
+		$sql = "Select loginname,pwd FROM users WHERE loginname='$loginname'";
+		$result = $conn->query($sql);
 	
 		if($result != null){
 			

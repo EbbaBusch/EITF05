@@ -1,5 +1,4 @@
-﻿-- MySQL dump 10.16  Distrib 10.1.16-MariaDB, for Win32 (AMD64)
---
+
 -- Host: localhost    Database: webshop
 -- ------------------------------------------------------
 -- Server version	10.1.16-MariaDB

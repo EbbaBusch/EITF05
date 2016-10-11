@@ -26,5 +26,5 @@
 		header('Location: index.php');
 				
 	}
-	header('Location: regpage.php');
+	header('Location: index.php');
 ?>
