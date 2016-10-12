@@ -16,9 +16,9 @@ It also assumes that the root user is called "root" and the webshop folder is pl
 **This will replace your current webshop database with the one created from dump.sql**
 
 ###Step by step (for Windows with xampp):###
-1. **Move** `dbgen.bat`, `dbgenpw.bat`,`dump.sql`, and `dumpgen.bat` to your xampp folder.
+1. **Move** `dbgen.bat`, `dbgenpw.bat`,`dump.sql`, and `dumpgen.bat` to your xampp directory.
 2. Open CMD and navigate to your **xampp** directory.
-3. In CMD, type:  `dbgenpw.bat <password>`, where <password> is your root password. If no password 
+3. In CMD, type:  `dbgenpw.bat <password>`, where `<password>` is your root password. If no password 
 exists, use `dbgen.bat` instead.
 4. Lean back and enjoy, you should also be automatically logged in
 
