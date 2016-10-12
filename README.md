@@ -2,6 +2,7 @@
 ### Project Structure ###
 In this project we have 2 different root folders. The regular root, which contains the finished webshop with protection against XSS, CSRF and SQL injection, and the unsecureroot, which contains a version susceptible to all attacks used for demonstration purposes. 
 
+### Instructions for Database generation ###
 Instructions for generating the database from dump.sql if you have a xampp setup:
 These instructions assume that **mysqladmin** is located in **xampp\mysql\bin\mysqladmin.exe** 
 and mysqld in **xampp\mysql\bin\mysqld.exe**.
@@ -14,7 +15,7 @@ It also assumes that the root user is called "root" and the webshop folder is pl
 
 **This will replace your current webshop database with the one created from dump.sql**
 
-### Instructions ###
+##Step by step:##
 1. **Move** `dbgen.bat`, `dump.sql`, and `dumpgen.bat` to your xampp folder.
 2. Open CMD and navigate to your **xampp** directory.
 3. In CMD, type:  `dbgen.bat <password>`, where <password> is your root password. If no password 
