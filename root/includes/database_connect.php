@@ -1,5 +1,5 @@
 <?php
-	
+	error_reporting(0);
 	include_once'config.php';
 	
 try {
@@ -7,7 +7,7 @@ try {
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $e) {
 			$error = "Connection error: " . $e->getMessage();
-			print $error . "<p>";
+			//print $error . "<p>";
 			unset($conn);
 		
 		}

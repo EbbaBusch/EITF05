@@ -4,6 +4,7 @@
         <li><a href="regpage.php">Register</a></li>
         <li id="login">
 <?php	
+    error_reporting(0);
 	if(!logincheck()){
 ?>
     <form name="login_form" action="processlogin.php" method="post" id="login_form">                      

@@ -1,6 +1,7 @@
 <?php
-
-	 function executeQuery($query, $param = null) {
+     error_reporting(0);
+	 
+     function executeQuery($query, $param = null) {
 		global $conn;
 		try {
 			$stmt = $conn->prepare($query);
