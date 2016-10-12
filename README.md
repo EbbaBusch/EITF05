@@ -1,10 +1,13 @@
 # Web Security / EITF05 
+### Project Structure ###
+In this project we have 2 different root folders. The regular root, which contains the finished webshop with protection against XSS, CSRF and SQL injection, and the unsecureroot, which contains a version susceptible to all attacks used for demonstration purposes. 
 
 Instructions for generating the database from dump.sql if you have a xampp setup:
 These instructions assume that **mysqladmin** is located in **xampp\mysql\bin\mysqladmin.exe** 
 and mysqld in **xampp\mysql\bin\mysqld.exe**.
 It also assumes that the root user is called "root" and the webshop folder is placed in 
 **xampp\mysql\data\webshop**
+
 
 **It is important that your system has mysql as PATH variable, otherwise the commands will not work**
 ## WARNING ##
