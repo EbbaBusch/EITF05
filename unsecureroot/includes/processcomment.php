@@ -7,7 +7,7 @@ if($_POST['token'] == $_SESSION['token']){
 	if(isset($_POST['id'])){
 
 		$comment = $_POST["comment"];
-	    $id = $_POST["id"];
+	   	$id = $_POST["id"];
 		
 		$sql = "Insert into comments (id,comments) values(?,?)";
 		executeUpdate ($sql,array($id,$comment));
